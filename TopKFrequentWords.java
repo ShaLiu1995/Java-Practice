@@ -57,7 +57,7 @@ public class TopKFrequentWords {
 		System.out.println("Inset K: ");
 		int k = sc.nextInt();
 
-		System.out.println("Inset number of words: ");
+		System.out.println("Insert number of words: ");
 		int n = sc.nextInt();
 
 		System.out.println("Insert words (Seperated by space, terminated by CR): ");

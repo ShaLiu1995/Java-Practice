@@ -77,14 +77,14 @@ public class MedianKSortedArrays {
 		// int[] p = new int[] {-1, 8, 0, 2, 10};
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Inset number of rows (sorted): ");
+		System.out.println("Insert number of rows (sorted): ");
 		int m = sc.nextInt();
 
-		System.out.println("Inset number of columns: ");
+		System.out.println("Insert number of columns: ");
 		int n = sc.nextInt();
 
 
-		System.out.println("Inset nums[][]: ");
+		System.out.println("Insert nums[][]: ");
 		int[][] nums = new int[m][n];
 		for (int i = 0; i < m * n; i++) {
 			nums[i / m][i % m] = sc.nextInt();

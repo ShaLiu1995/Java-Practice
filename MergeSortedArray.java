@@ -30,19 +30,19 @@ public class MergeSortedArray {
 		// int[] p = new int[] {-1, 8, 0, 2, 10};
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Inset m: ");
+		System.out.println("Insert m: ");
 		int m = sc.nextInt();
 
-		System.out.println("Inset n: ");
+		System.out.println("Insert n: ");
 		int n = sc.nextInt();
 
-		System.out.println("Inset A[]: ");
+		System.out.println("Insert A[]: ");
 		int[] A = new int[m + n];
 		for (int i = 0; i < m; i++) {
 			A[i] =sc.nextInt();
 		}
 
-		System.out.println("Inset B[]: ");
+		System.out.println("Insert B[]: ");
 		int[] B = new int[m];
 		for (int i = 0; i < n; i++) {
 			B[i] =sc.nextInt();

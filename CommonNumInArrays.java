@@ -72,7 +72,7 @@ public class CommonNumInArrays {
 		// int[] p = new int[] {-1, 8, 0, 2, 10};
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Inset length of nums1: ");
+		System.out.println("Insert length of nums1: ");
 		int n1 = sc.nextInt();
 
 		System.out.println("Insert nums1: ");

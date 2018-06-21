@@ -77,10 +77,10 @@ public class RangeSumQuery {
 		// int[] p = new int[] {-1, 8, 0, 2, 10};
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Inset n: ");
+		System.out.println("Insert n: ");
 		int n = sc.nextInt();
 
-		System.out.println("Inset nums[]: ");
+		System.out.println("Insert nums[]: ");
 		int[] nums = new int[n];
 		for (int i = 0; i < n; i++) {
 			nums[i] = sc.nextInt();
@@ -88,7 +88,7 @@ public class RangeSumQuery {
 
 		RangeSumQuery rsq = new RangeSumQuery(nums);
 
-		System.out.println("Inset range: ");
+		System.out.println("Insert range: ");
 		int lo = sc.nextInt();
 		int hi = sc.nextInt();
 

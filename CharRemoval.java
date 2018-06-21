@@ -28,10 +28,10 @@ public class CharRemoval {
 		// int[] p = new int[] {-1, 8, 0, 2, 10};
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Inset String: ");
+		System.out.println("Insert String: ");
 		String str = sc.nextLine();
 
-		System.out.println("Inset number of characters to remove: ");
+		System.out.println("Insert number of characters to remove: ");
 		int k = sc.nextInt();
 
 		System.out.println("Insert characters to remove: ");
