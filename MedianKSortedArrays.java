@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MedianKSortedArrays {
 
-	public static double findMedian(int[][] nums) {
+    public static double findMedian(int[][] nums) {
         // write your code here
         int len = getLen(nums);
         if (len == 0) 
@@ -72,24 +72,24 @@ public class MedianKSortedArrays {
         return 0;
     }
 
-	
-	public static void main(String[] args) {
-		// int[] p = new int[] {-1, 8, 0, 2, 10};
-		Scanner sc = new Scanner(System.in);
+    
+    public static void main(String[] args) {
+        // int[] p = new int[] {-1, 8, 0, 2, 10};
+        Scanner sc = new Scanner(System.in);
 
-		System.out.println("Insert number of rows (sorted): ");
-		int m = sc.nextInt();
+        System.out.println("Insert number of rows (sorted): ");
+        int m = sc.nextInt();
 
-		System.out.println("Insert number of columns: ");
-		int n = sc.nextInt();
+        System.out.println("Insert number of columns: ");
+        int n = sc.nextInt();
 
 
-		System.out.println("Insert nums[][]: ");
-		int[][] nums = new int[m][n];
-		for (int i = 0; i < m * n; i++) {
-			nums[i / m][i % m] = sc.nextInt();
-		}
-		
-		System.out.println("Medians: " + findMedian(nums));
-	}
+        System.out.println("Insert nums[][]: ");
+        int[][] nums = new int[m][n];
+        for (int i = 0; i < m * n; i++) {
+            nums[i / m][i % m] = sc.nextInt();
+        }
+        
+        System.out.println("Medians: " + findMedian(nums));
+    }
 }

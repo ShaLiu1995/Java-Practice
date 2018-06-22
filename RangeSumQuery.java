@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class RangeSumQuery {
 
-	private int[] array = null;
-	private int[] binaryIndexTree = null;
+    private int[] array = null;
+    private int[] binaryIndexTree = null;
 
     // public RangeSumQuery(int[] nums) {
     //     array = new int[nums.length];
@@ -29,8 +29,8 @@ public class RangeSumQuery {
     //     }
         
     // }
-	
-	public void update(int index, int val) {
+    
+    public void update(int index, int val) {
         if (array == null || index >= array.length)
             return;
 
@@ -70,29 +70,29 @@ public class RangeSumQuery {
     public int sumRange(int lo, int hi) {
         return getPrefixSum(hi) - getPrefixSum(lo - 1);
     }
-	
+    
 
-	
-	public static void main(String[] args) {
-		// int[] p = new int[] {-1, 8, 0, 2, 10};
-		Scanner sc = new Scanner(System.in);
+    
+    public static void main(String[] args) {
+        // int[] p = new int[] {-1, 8, 0, 2, 10};
+        Scanner sc = new Scanner(System.in);
 
-		System.out.println("Insert n: ");
-		int n = sc.nextInt();
+        System.out.println("Insert n: ");
+        int n = sc.nextInt();
 
-		System.out.println("Insert nums[]: ");
-		int[] nums = new int[n];
-		for (int i = 0; i < n; i++) {
-			nums[i] = sc.nextInt();
-		}
+        System.out.println("Insert nums[]: ");
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
+        }
 
-		RangeSumQuery rsq = new RangeSumQuery(nums);
+        RangeSumQuery rsq = new RangeSumQuery(nums);
 
-		System.out.println("Insert range: ");
-		int lo = sc.nextInt();
-		int hi = sc.nextInt();
+        System.out.println("Insert range: ");
+        int lo = sc.nextInt();
+        int hi = sc.nextInt();
 
-		System.out.println("Range Sum: ");
-		System.out.print(rsq.sumRange(lo, hi));
-	}
+        System.out.println("Range Sum: ");
+        System.out.print(rsq.sumRange(lo, hi));
+    }
 }

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MergeSortedArray {
 
-	public static void mergeSortedArray(int[] A, int m, int[] B, int n) {      
+    public static void mergeSortedArray(int[] A, int m, int[] B, int n) {      
         int i = 0, j = 0;      
         while (i < m && j < n) {
             if (A[i+j] <= B[j]) {
@@ -23,35 +23,35 @@ public class MergeSortedArray {
             j++;
         }
     }
-	
+    
 
-	
-	public static void main(String[] args) {
-		// int[] p = new int[] {-1, 8, 0, 2, 10};
-		Scanner sc = new Scanner(System.in);
+    
+    public static void main(String[] args) {
+        // int[] p = new int[] {-1, 8, 0, 2, 10};
+        Scanner sc = new Scanner(System.in);
 
-		System.out.println("Insert m: ");
-		int m = sc.nextInt();
+        System.out.println("Insert m: ");
+        int m = sc.nextInt();
 
-		System.out.println("Insert n: ");
-		int n = sc.nextInt();
+        System.out.println("Insert n: ");
+        int n = sc.nextInt();
 
-		System.out.println("Insert A[]: ");
-		int[] A = new int[m + n];
-		for (int i = 0; i < m; i++) {
-			A[i] =sc.nextInt();
-		}
+        System.out.println("Insert A[]: ");
+        int[] A = new int[m + n];
+        for (int i = 0; i < m; i++) {
+            A[i] =sc.nextInt();
+        }
 
-		System.out.println("Insert B[]: ");
-		int[] B = new int[m];
-		for (int i = 0; i < n; i++) {
-			B[i] =sc.nextInt();
-		}
+        System.out.println("Insert B[]: ");
+        int[] B = new int[m];
+        for (int i = 0; i < n; i++) {
+            B[i] =sc.nextInt();
+        }
 
-		mergeSortedArray(A, m, B, n);
-		System.out.println("Results: ");
-		for (int num : A) {
-			System.out.print(num + " ");
-		}	
-	}
+        mergeSortedArray(A, m, B, n);
+        System.out.println("Results: ");
+        for (int num : A) {
+            System.out.print(num + " ");
+        }   
+    }
 }
