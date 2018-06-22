@@ -130,69 +130,63 @@ public class MergeSortedIntervalList {
 			return;
 		}
 
-		if (args.length == 1) {
-			if (args[0].equals("--two")) {
-				Scanner sc = new Scanner(System.in);
+		if (args[0].equals("--two")) {
+			Scanner sc = new Scanner(System.in);
 
-				System.out.println("Insert number of intervals in List1: ");
-				int n1 = sc.nextInt();
-				System.out.println("Insert intervals in List1: ");
-				List<Interval> list1 = new ArrayList<>();
-				for (int i = 0; i < n1; i++) {
-					int start = sc.nextInt();
-					int end = sc.nextInt();
-					list1.add(new Interval(start, end));
-				}
-
-				System.out.println("Insert number of intervals in List2: ");
-				int n2 = sc.nextInt();
-				System.out.println("Insert intervals in List2: ");
-				List<Interval> list2 = new ArrayList<>();
-				for (int i = 0; i < n2; i++) {
-					int start = sc.nextInt();
-					int end = sc.nextInt();
-					list2.add(new Interval(start, end));
-				}
-
-				List<Interval> res = mergeTwoIntervalList(list1, list2);
-				System.out.println("Results are: ");
-				for (Interval iv : res) {
-					System.out.println(iv.toString());
-				}
-
-			} else if (args[0].equals("--more")) {
-				Scanner sc = new Scanner(System.in);
-
-				System.out.println("Insert total number of lists: ");
-				int N = sc.nextInt();
-
-				List<List<Interval>> ivListList = new ArrayList<>();
-				for (int k = 0; k < N; k++) {
-					System.out.println("Insert number of intervals in next list: ");
-					int n = sc.nextInt();
-					System.out.println("Insert next interval list: ");
-					List<Interval> ivList = new ArrayList<>();
-					for (int i = 0; i < n; i++) {
-						int start = sc.nextInt();
-						int end = sc.nextInt();
-						ivList.add(new Interval(start, end));
-					}
-					ivListList.add(ivList);
-				}
-
-				List<Interval> res = mergeKIntervalList(ivListList);
-				System.out.println("Results are: ");
-				for (Interval iv : res) {
-					System.out.println(iv.toString());
-				}
-
-			} else {
-				System.out.println("Unrecognized option: " + args[0]);
-				return;
+			System.out.println("Insert number of intervals in List1: ");
+			int n1 = sc.nextInt();
+			System.out.println("Insert intervals in List1: ");
+			List<Interval> list1 = new ArrayList<>();
+			for (int i = 0; i < n1; i++) {
+				int start = sc.nextInt();
+				int end = sc.nextInt();
+				list1.add(new Interval(start, end));
 			}
+
+			System.out.println("Insert number of intervals in List2: ");
+			int n2 = sc.nextInt();
+			System.out.println("Insert intervals in List2: ");
+			List<Interval> list2 = new ArrayList<>();
+			for (int i = 0; i < n2; i++) {
+				int start = sc.nextInt();
+				int end = sc.nextInt();
+				list2.add(new Interval(start, end));
+			}
+
+			List<Interval> res = mergeTwoIntervalList(list1, list2);
+			System.out.println("Results are: ");
+			for (Interval iv : res) {
+				System.out.println(iv.toString());
+			}
+
+		} else if (args[0].equals("--more")) {
+			Scanner sc = new Scanner(System.in);
+
+			System.out.println("Insert total number of lists: ");
+			int N = sc.nextInt();
+
+			List<List<Interval>> ivListList = new ArrayList<>();
+			for (int k = 0; k < N; k++) {
+				System.out.println("Insert number of intervals in next list: ");
+				int n = sc.nextInt();
+				System.out.println("Insert next interval list: ");
+				List<Interval> ivList = new ArrayList<>();
+				for (int i = 0; i < n; i++) {
+					int start = sc.nextInt();
+					int end = sc.nextInt();
+					ivList.add(new Interval(start, end));
+				}
+				ivListList.add(ivList);
+			}
+
+			List<Interval> res = mergeKIntervalList(ivListList);
+			System.out.println("Results are: ");
+			for (Interval iv : res) {
+				System.out.println(iv.toString());
+			}
+
 		} else {
-			System.out.println("Unrecognized option");
-			return;
+			System.out.println("Unrecognized option: " + args[0]);
 		}
 
 	}
