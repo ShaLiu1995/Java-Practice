@@ -103,8 +103,7 @@ public class Subset {
         System.out.println("--string         Subset of string");
     }
     
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) {    
         if (args.length != 1 || args[0].equals("--help")) {
             usage();
             return;
