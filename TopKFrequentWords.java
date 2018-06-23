@@ -51,7 +51,6 @@ public class TopKFrequentWords {
 
     
     public static void main(String[] args) {
-        // int[] p = new int[] {-1, 8, 0, 2, 10};
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Inset K: ");
