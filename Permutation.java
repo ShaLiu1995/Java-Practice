@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -21,7 +22,7 @@ public class Permutation {
         return result;
     }
     
-    public static void dfs(char[] letters, 
+    private static void dfs(char[] letters, 
                             StringBuilder sb,
                             int startIndex,
                             List<String> result,
@@ -45,6 +46,45 @@ public class Permutation {
         }
     }
 
+    public static List<String> permutation2(String str) {
+        List<String> result = new ArrayList<>();
+        if (str == null || str.length() == 0)
+            return result;
+        
+        char[] letters = str.toCharArray();
+
+
+        dfs2(letters, 0, result);
+        return result;
+    }
+
+    private static void dfs2(char[] letters, 
+                            int startIndex,
+                            List<String> result) {
+        
+        if (startIndex == letters.length) {
+            result.add(new String(letters));
+            return;
+        }        
+               
+        HashSet<Character> set = new HashSet<>(); 
+        for (int i = startIndex; i < letters.length; i++) {
+            if (set.contains(letters[i]))
+                continue;    
+            
+            set.add(letters[i]);
+            exch(letters, startIndex, i);
+            dfs2(letters, startIndex + 1, result);
+            exch(letters, startIndex, i);
+        }
+    }
+
+    private static void exch(char[] letters, int i, int j) {
+        char temp = letters[i];
+        letters[i] = letters[j];
+        letters[j] = temp;
+    }
+
     public static List<List<Integer>> permutationInt(List<Integer> nums) {
         List<List<Integer>> result = new ArrayList<>();
         if (nums == null || nums.size() == 0)
@@ -59,7 +99,7 @@ public class Permutation {
         return result;
     }
     
-    public static void dfsInt(List<Integer> nums, 
+    private static void dfsInt(List<Integer> nums, 
                             List<Integer> temp,
                             int startIndex,
                             List<List<Integer>> result,
@@ -108,6 +148,13 @@ public class Permutation {
             for (String s : result) {
                 System.out.println(s);
             }
+
+            List<String> result2 = permutation2(str);
+            System.out.println("Permutation is (Method 2): ");
+            for (String s : result2) {
+                System.out.println(s);
+            }
+
         } else if (args[0].equals("--int")) {
             Scanner sc = new Scanner(System.in);  
 

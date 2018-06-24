@@ -99,7 +99,7 @@ public class MergeSort {
             return;
         }
 
-        if (args[0].equals("--arrays")) {
+        if (args[0].equals("--array")) {
             Scanner sc = new Scanner(System.in);
             System.out.println("Input length:");
             int n = sc.nextInt();

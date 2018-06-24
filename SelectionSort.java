@@ -31,7 +31,7 @@ public class SelectionSort {
         a[j] = swap;    
     }
 
-    public static ListNode selectionSortLinkedList(ListNode head) {
+    public static ListNode selectionSortList(ListNode head) {
         ListNode node = head;
         while (node != null) {
             ListNode min = node;
@@ -59,12 +59,12 @@ public class SelectionSort {
     }
     
     public static void main(String[] args) {
-        if (args.length != 1 || args[0] == "--help") {
+        if (args.length != 1 || args[0].equals("--help")) {
             usage();
             return;
         }
 
-        if (args[0].equals("--arrays")) {
+        if (args[0].equals("--array")) {
             Scanner sc = new Scanner(System.in);
             System.out.println("Input length:");
             int n = sc.nextInt();
@@ -97,7 +97,7 @@ public class SelectionSort {
                 i++;
             }
 
-            ListNode sortedListNode = selectionSortLinkedList(head);
+            ListNode sortedListNode = selectionSortList(head);
             System.out.println("Sorted linkedlist: ");
             while (sortedListNode != null) {
                 System.out.print(sortedListNode.value + " ");
