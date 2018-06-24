@@ -64,7 +64,7 @@ public class MergeSortedIntervalList {
         return res;
     }
 
-    public static List<Interval> mergeKIntervalList(List<List<Interval>> intervals) {
+    private static List<Interval> mergeKIntervalList(List<List<Interval>> intervals) {
         int k = intervals.size();
         PriorityQueue<Pair> pq = new PriorityQueue<>(k, new Comparator<Pair>() {
             @Override
@@ -94,7 +94,7 @@ public class MergeSortedIntervalList {
     }
     
 
-    public static List<Interval> merge(List<Interval> intervals) {
+    private static List<Interval> merge(List<Interval> intervals) {
         if (intervals.size() <= 1)
             return intervals;
 
@@ -118,9 +118,9 @@ public class MergeSortedIntervalList {
     public static void usage() {
         System.out.println("Usage: java MergeSortedIntervalList <options>");
         System.out.println("Options:");
-        System.out.println("--help             Check usage");
-        System.out.println("--two             Merger two sorted interval lists");
-        System.out.println("--more             Merger three or more sorted interval lists");
+        System.out.println("    --help  heck usage");
+        System.out.println("    --two   Merger two sorted interval lists");
+        System.out.println("    --more  Merger three or more sorted interval lists");
     }
     
     public static void main(String[] args) {

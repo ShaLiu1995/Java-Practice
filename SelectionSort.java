@@ -25,13 +25,13 @@ public class SelectionSort {
         }
     }
     
-    public static void exch(int[] a, int i, int j) {
+    private static void exch(int[] a, int i, int j) {
         int swap = a[i];
         a[i] = a[j];
         a[j] = swap;    
     }
 
-    public static void selectionSortLinkedList(ListNode head) {
+    public static ListNode selectionSortLinkedList(ListNode head) {
         ListNode node = head;
         while (node != null) {
             ListNode min = node;
@@ -47,14 +47,15 @@ public class SelectionSort {
             min.value = temp;
             node = node.next;
         }
+        return head;
     }
 
     public static void usage() {
         System.out.println("Usage: java SelectionSort <options>");
         System.out.println("Options:");
-        System.out.println("--help              Check usage");
-        System.out.println("--array             Sort array");
-        System.out.println("--linkedlist        Sort Linked List");
+        System.out.println("    --help          Check usage");
+        System.out.println("    --array         Sort array");
+        System.out.println("    --linkedlist    Sort Linked List");
     }
     
     public static void main(String[] args) {
@@ -84,7 +85,7 @@ public class SelectionSort {
             System.out.println("Input length:");
             int n = sc.nextInt();
 
-            System.out.println("Input the linked list:");
+            System.out.println("Input the linkedlist:");
             ListNode head = null, prev = null, curr = null;
             head = new ListNode(sc.nextInt());
             curr = head;
@@ -96,11 +97,11 @@ public class SelectionSort {
                 i++;
             }
 
-            selectionSortLinkedList(head);
+            ListNode sortedListNode = selectionSortLinkedList(head);
             System.out.println("Sorted linkedlist: ");
-            while (head != null) {
-                System.out.print(head.value + " ");
-                head = head.next;
+            while (sortedListNode != null) {
+                System.out.print(sortedListNode.value + " ");
+                sortedListNode = sortedListNode.next;
             }
         } else {
             System.out.println("Unrecognized option: " + args[0]);

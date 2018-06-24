@@ -24,7 +24,7 @@ public class InsertionSort {
         }
     }
     
-    public static void exch(int[] a, int i, int j) {
+    private static void exch(int[] a, int i, int j) {
         int swap = a[i];
         a[i] = a[j];
         a[j] = swap;    
