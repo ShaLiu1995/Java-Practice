@@ -126,9 +126,9 @@ public class Permutation {
     public static void usage() {
         System.out.println("Usage: java Permutation <options>");
         System.out.println("Options:");
-        System.out.println("--help             Check usage");
-        System.out.println("--int             Permutation of integers");
-        System.out.println("--string         Permutation of string");
+        System.out.println("    --help        Check usage");
+        System.out.println("    --int         Permutation of integers");
+        System.out.println("    --string      Permutation of string");
     }
     
     public static void main(String[] args) {

@@ -60,6 +60,7 @@ public class QuickSort {
 
     private static void quickSort3Way(int[] nums, int lo, int hi) {
         if (hi <= lo)   return;
+        
         int lt = lo, gt = hi;
         int pivot = nums[lo];
         int i = lo + 1;

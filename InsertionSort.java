@@ -29,6 +29,16 @@ public class InsertionSort {
         a[i] = a[j];
         a[j] = swap;    
     }
+
+    public static void insertionSort2(int[] a) {
+        insertionSort2(a, 0 , a.length - 1);
+    }
+
+    private static void insertionSort2(int[] a, int lo, int hi) {
+        for (int i = lo; i <= hi; i++)
+            for (int j = i; j > lo && a[j] < a[j-1]; j--)
+                exch(a, j, j-1);
+    }
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
