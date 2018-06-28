@@ -28,6 +28,11 @@ public class QuickSort {
         int i = lo;
         int j = hi + 1;
         int v = nums[lo];
+
+        // a[lo]             pivot
+        // a[lo+1 ... i-1]   <= pivot
+        // a[i ... j]        undiscovered
+        // a[j+1 ... hi]     >= pivot
         while (true) {
 
             // find item on lo to swap
@@ -48,7 +53,7 @@ public class QuickSort {
         // put partitioning item v at a[j]
         exch(nums, lo, j);
 
-        // now, a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
+        // now, a[lo ... j-1] <= a[j] <= a[j+1 ... hi]
         return j;
     }
 
@@ -61,6 +66,11 @@ public class QuickSort {
     private static void quickSort3Way(int[] nums, int lo, int hi) {
         if (hi <= lo)   return;
         
+        // a[lo]                pivot
+        // a[lo+1 ... lt-1]     < pivot
+        // a[lt ... i - 1]      == pivot
+        // a[i ... gt]          to be discovered
+        // a[gt+1 .. hi]        > pivot
         int lt = lo, gt = hi;
         int pivot = nums[lo];
         int i = lo + 1;
