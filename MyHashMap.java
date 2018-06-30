@@ -28,6 +28,8 @@ public class MyHashMap<K, V> {
         if (key == null) {
             throw new NullPointerException("Key cannot be null!");
         }
+
+        // Problem: index can be negtive
         int index = key.hashCode() % capacity;
         if (buckets.get(index) == null) {
             buckets.set(index, new LinkedList<Entry<K, V>>());
@@ -74,5 +76,4 @@ public class MyHashMap<K, V> {
         map.put(2,"two");
         System.out.println(map.get(1));
     }
-
 }

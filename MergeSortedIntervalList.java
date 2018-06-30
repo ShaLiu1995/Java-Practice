@@ -9,7 +9,8 @@ import java.util.Comparator;
 // LT 577 Merge K sorted intervals
 
 class Interval {
-    int start, end;
+    int start;
+    int end;
     Interval(int start, int end) {
         this.start = start;
         this.end = end;
@@ -20,12 +21,26 @@ class Interval {
     }
 }
 
-class Pair {
-    int row, col;
-    public Pair(int row, int col) {
+class Position {
+    int row; 
+    int col;
+    int start;
+
+    public Position(int row, int col, int start) {
         this.row = row;
         this.col = col;
+        this.start = start;
     }
+}
+
+class PositionComparator implements Comparator<Position> {
+	@Override
+	public int compare(Position o1, Position o2) {
+		if (o1.start == o2.start) {
+			return 0;
+		}
+		return o1.start < o2.start ? -1 : 1;
+	}
 }
 
 public class MergeSortedIntervalList {
@@ -66,23 +81,17 @@ public class MergeSortedIntervalList {
 
     private static List<Interval> mergeKIntervalList(List<List<Interval>> intervals) {
         int k = intervals.size();
-        PriorityQueue<Pair> pq = new PriorityQueue<>(k, new Comparator<Pair>() {
-            @Override
-            public int compare(Pair p1, Pair p2) {
-                return intervals.get(p1.row).get(p1.col).start - 
-                       intervals.get(p2.row).get(p2.col).start;
-            }
-        });
+        PriorityQueue<Position> pq = new PriorityQueue<>(k, new PositionComparator());
 
         for (int i = 0; i < k; i++) {
             if (intervals.get(i).size() > 0) {
-                pq.add(new Pair(i, 0));
+                pq.add(new Position(i, 0, intervals.get(i).get(0).start));
             }
         }
 
         List<Interval> res = new ArrayList<>();
         while (!pq.isEmpty()) {
-            Pair p = pq.poll();
+            Position p = pq.poll();
             res.add(intervals.get(p.row).get(p.col));
             p.col++;
             if (p.col < intervals.get(p.row).size()) {
