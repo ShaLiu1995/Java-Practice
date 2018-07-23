@@ -6,11 +6,11 @@ import java.util.Iterator;
 
 public class MyHashMapRehashing<K, V> {
         
-    public static class Node<K, V> {
+    public static class Entry<K, V> {
         final K key;
         V value;
-        Node<K, V> next;
-        Node(K key, V value) {
+        Entry<K, V> next;
+        Entry(K key, V value) {
             this.key = key;
             this.value = value;
         }
@@ -34,7 +34,7 @@ public class MyHashMapRehashing<K, V> {
     
 
     private int size;
-    private Node<K, V>[] bucket;
+    private Entry<K, V>[] bucket;
     private float loadFactor;
 
     public MyHashMapRehashing() {
@@ -46,28 +46,28 @@ public class MyHashMapRehashing<K, V> {
             throw new IllegalArgumentException("Capacity can not be <= zero");
         }
 
-        this.bucket = (Node<K, V>[])(new Node[capacity]);
+        this.bucket = (Entry<K, V>[])(new Entry[capacity]);
         this.size = 0;
         this.loadFactor = loadFactor;
     }
 
     public V put(K key, V value) {
         int bucketIndex = getBucketIndex(key);
-        Node<K, V> head = bucket[bucketIndex];
-        Node<K, V> node = head;
+        Entry<K, V> head = bucket[bucketIndex];
+        Entry<K, V> Entry = head;
 
-        while (node != null) {
-            if (equalsKey(node.key, key)) {
-                V result = node.value;
-                node.value = value;
+        while (Entry != null) {
+            if (equalsKey(Entry.key, key)) {
+                V result = Entry.value;
+                Entry.value = value;
                 return result;
             }
-            node = node.next;
+            Entry = Entry.next;
         }
         
-        Node<K, V> newNode = new Node(key, value);
-        newNode.next = head;
-        bucket[bucketIndex] = newNode;
+        Entry<K, V> newEntry = new Entry(key, value);
+        newEntry.next = head;
+        bucket[bucketIndex] = newEntry;
         size++;
         if (needRashing()) {
             rehashing();
@@ -77,21 +77,21 @@ public class MyHashMapRehashing<K, V> {
 
     public V get(K key) {
         int bucketIndex = getBucketIndex(key);
-        Node<K, V> node = bucket[bucketIndex];
+        Entry<K, V> Entry = bucket[bucketIndex];
 
-        while (node != null) {
-            if (equalsKey(node.key, key)) {
-                return node.value;
+        while (Entry != null) {
+            if (equalsKey(Entry.key, key)) {
+                return Entry.value;
             }
-            node = node.next;
+            Entry = Entry.next;
         }
         return null;
     }
 
     public V remove(K key) {
         int bucketIndex = getBucketIndex(key);
-        Node<K, V> curr = bucket[bucketIndex];
-        Node<K, V> prev = null;
+        Entry<K, V> curr = bucket[bucketIndex];
+        Entry<K, V> prev = null;
 
         while (curr != null) {
             if (equalsKey(curr.key, key)) {
@@ -119,13 +119,13 @@ public class MyHashMapRehashing<K, V> {
         }
 
         int bucketIndex = getBucketIndex(key);
-        Node<K, V> node = bucket[bucketIndex];
+        Entry<K, V> Entry = bucket[bucketIndex];
       
-        while (node != null) {
-            if (equalsKey(node.key, key)) {
+        while (Entry != null) {
+            if (equalsKey(Entry.key, key)) {
                 return true;
             }
-            node = node.next;
+            Entry = Entry.next;
         }
         return false;
     }
@@ -135,12 +135,12 @@ public class MyHashMapRehashing<K, V> {
             return false;
         }
 
-        for (Node<K, V> node : bucket) {
-            while (node != null) {
-                if (equalsValue(node.value, value)) {
+        for (Entry<K, V> Entry : bucket) {
+            while (Entry != null) {
+                if (equalsValue(Entry.value, value)) {
                     return true;
                 }
-                node = node.next;
+                Entry = Entry.next;
             }
         }
         return false;
@@ -195,12 +195,12 @@ public class MyHashMapRehashing<K, V> {
     }
 
     private void rehashing() {
-        Node<K, V> oldBucket = bucket;
-        bucket = (Node<K, V>[])(new Node[bucket.length * DEFAULT_EXPAND_RATE]);
+        Entry<K, V> oldBucket = bucket;
+        bucket = (Entry<K, V>[])(new Entry[bucket.length * DEFAULT_EXPAND_RATE]);
 
-        for (Node<K, V> node : oldBucket) {
-            while (node != null) {
-                put(node.getKey(), node.getValue());
+        for (Entry<K, V> Entry : oldBucket) {
+            while (Entry != null) {
+                put(Entry.getKey(), Entry.getValue());
             }
         }
     }

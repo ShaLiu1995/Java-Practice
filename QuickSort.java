@@ -68,7 +68,7 @@ public class QuickSort {
         
         // a[lo]                pivot
         // a[lo+1 ... lt-1]     < pivot
-        // a[lt ... i - 1]      == pivot
+        // a[lt ... i-1]      == pivot
         // a[i ... gt]          to be discovered
         // a[gt+1 .. hi]        > pivot
         int lt = lo, gt = hi;
