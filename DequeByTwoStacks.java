@@ -9,7 +9,6 @@ public class DequeByTwoStacks {
     public DequeByTwoStacks() {
         stack1 = new LinkedList<Integer>();
         stack2 = new LinkedList<Integer>();
-        stack3 = new LinkedList<Integer>();
     }
   
     public void offerFirst(int element) {
